@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Bootstrap - Blog Tutorial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .navbar-gradient, .footer-gradient {
+      background: linear-gradient(90deg,#2E0854, #4B0082, #6A0DAD, #8A2BE2, #9B30FF, #4B0082, #2E0854);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(120deg,#2E0854, #4B0082, #6A0DAD, #8A2BE2);
+    }
+
+    .profile-card {
+      border-radius: 1rem;
+    }
+
+    .social-links a {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Bootstrap Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-gradient text-white py-5">
+    <div class="container text-center">
+      <h1 class="fw-bold">Belajar Bootstrap 🚀</h1>
+      <p class="lead">Panduan mudah belajar framework CSS populer untuk membuat website modern</p>
+    </div>
+  </header>
+
+  <!-- ABOUT CONTENT -->
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card profile-card shadow-lg border-0 p-4">
+          <div class="text-center mb-4">
+            <img src="assets/Foto/image.png" alt="Foto Profil" width="500">
+          </div>
+          <h2 class="text-center mb-3">Selamat Datang di Blog Tutorial Bootstrap 👋</h2>
+          <p>
+            Blog ini dibuat untuk membantu kamu memahami dan mempraktikkan <strong>Bootstrap</strong> dengan cara yang sederhana dan praktis. 
+            Kita akan belajar dari dasar hingga fitur lanjutan, mulai dari grid system, komponen, hingga utilities.
+          </p>
+          <p>
+            Tujuannya adalah agar kamu bisa membangun <em>website responsif</em> dengan desain modern tanpa harus menulis banyak CSS dari nol. 
+            Dengan belajar Bootstrap, kamu bisa lebih cepat membuat layout dan fokus pada fungsionalitas website.
+          </p>
+          <p class="fw-bold text-center text-primary">
+            Yuk mulai perjalanan belajar Bootstrap bersama! 💻
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+ <footer class="text-white py-4 mt-auto footer-gradient">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+    
+    <p class="mb-0 text-center text-md-start">&copy; 2025 Petra | Belajar Bootstrap</p>
+
+    <div class="d-flex gap-3 social-links justify-content-center">
+      <a href="mailto:jonespetra102@gmail.com" class="text-white fs-4" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/nessspetra" class="text-white fs-4" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/nessspetra" class="text-white fs-4" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/nessspetra11" class="text-white fs-4" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("fade-in");
+    });
+
+    document.querySelectorAll("a[href]").forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (!href.startsWith("#")) { 
+            e.preventDefault();
+            document.body.classList.remove("fade-in");
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+              window.location.href = href;
+            }, 500);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
